@@ -1,0 +1,17 @@
+--------------LINKED LIST---------------
+# WHAT: linked list: kết nối, móc nối, liên kết -> danh sách các dữ liệu đưuọc liên kết
+hoặc móc nối với nhau
+*Trong một linked list: + hai đầu mút (head-tail)
+                                        |________-> móc nối các phần tử lại với nhau
+                                        |
+                        + mắt xích (node)
+                        + head không có phần tử nào trỏ vào nó <> tail sẽ trỏ vào null
+# WHY: giúp giải quyết các bài toán về thêm/xóa các phần tử trong dữ liệu
+
+@ ĐỘ phức tạp: linkedList-O(1) != array-O(n)
+
+# Where: là công cụ để xây dựng stack và queue, mở rộng linked list như circle list, double list,
+=> được ứng dụng nhiều
+
+& Implement về linked list:
++ insert, update, delete, searching(duyệt)

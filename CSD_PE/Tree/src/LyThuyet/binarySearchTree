@@ -1,0 +1,174 @@
+* một cấu trúc rỗng thì là một cây rỗng
+* một cây không rỗng thì chứa root và con của nó,
+  và những nhánh con cũng là cây
+
+################ 1 số khái niệm ###################
+1) ROOT: là node duy nhất mà không có cha
+2) Internal node: là những node mà ở đó có ít nhất 1 con
+3) External node: là những node k có con
+4) Ancestors node: là những node đi lên
+5) Descendants node: là những node đi xuống
+6) Lever of node:
+-> lever của root là 1
+-> sau root là i + 1
+7) Height of tree: là maximun level của cây,
+single node là bằng 1, độ cao của cây rỗng là bằng 0
+8) Height of node: là độ cao của cây con so với root
+
+@ BẬC CỦA NODE (degree (order) ) :
+_ Với một node bất kì thì có thể tìm đựuc node qua path từ cung hoặc cạnh
+                   1
+                 /   \
+               /       \
+             /           \
+           2               3
+         /   \            / \
+        /     \         /     \
+       4       5      6         7
+        \              \       /
+         \              \     /
+          8              9  10
+///////////////////////////////////////////////////////////////////////////////////////
+---------------        ORDERED TREE       --------------
+
+# PRE-ORDER: duyệt các node con trước khi duyệt các node còn lại (từ trên xuống dưới)
+vd: 1 2 4 8 5 3 6 9 7 10
+-> Visit trước khi duyệt tiếp
+# POST-ORDER: Node cha chỉ được duyệt sau khi duyệt các node con của nó (từ dưới lên)
+vd: 8 4 5 2 9 6 10 7 3 1
+
+# Breadth-first Traversal: visit từng hàng 1
+vd: 1 2 3 4 5 6 7 8 9 10
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+-------------------       BINARY TREE      --------------------
+                   8
+                 /   \
+               /       \
+             /           \
+           4               12
+         /   \            /   \
+        /     \         /       \
+       1       5       11        13
+        \       \      /        /  \
+         \       \    /       /      \
+          2       6  9       14       16
+                      \
+                       \
+                        10
+
+
+* Định nghĩa: là với một node chỉ có tối đa là 2 con.
+=> 1 cây empty cũng là 1 cây nhị phân
+_ Với mỗi một con thì phải phân định được bên trái và bên phải.
+=> mỗi con được đặt tên là con trái hoặc con phải.
+
+(#) PROPER BINARY TREE || FULL BINARY TREE \\ 2-TREE (cây nhị phân đủ) : ngoại trừ leaf từ mỗi node đều có 2 con
+
+
+(#) COMPLETE BINARY TREE (cây nhị phân hoàn thiện): Tất cả các node đều có 2 con và các leaf đều có chung level
+* Số node = 2^n - 1
+-> n: độ cao của node
+
+
+(#) DUYỆT CÂY NHỊ PHÂN:
+-> Breadth-First traversal: duyệt từ trái qua phải, từ trên xuống dưới
+vd: 8 4 12 1 5 7 11 6 9 10 14 16
+
+-> Depth-First traversals (Lever-Order traversals): duyệt theo chiều sâu
+
+(+) PRE-ORDER: Node -> Left -> Right
+vd: 8 4 1 2 5 6 8 12 11 9 10 13 14 16
+
+(+) IN-ORDER: Left -> Node -> Right
+vd: 1 2 4 5 6 8 9 10 11 12 13 14 16
+
+(+) POST-ORDER: Left -> Right -> Node
+vd: 1 2 6 5 4 10 9 11 14 16 13 12 8
+
+                   8
+                 /   \
+               /       \
+             /           \
+           4               12
+         /   \            /   \
+        /     \         /       \
+      3        5       11        19
+     /  \       \      /        /  \
+   /     \       \    /       /      \
+  1       2       6  9       15       25
+                      \             /    \
+                       \           /      \
+                        10        21       23
+
+EXAMPLE: "C:\Users\NITRO\Pictures\Screenshots\Screenshot 2024-07-06 173052.png"
+
+===========================================================
+                             BEFORE CODE
+1) Cây nhị phân tìm kiếm (BST) là cây nhị phân mà gía trị node con trái < parent < giá trị node con phải.
+(không có dấu =) -> giá trị key trong tree là DUY NHẤT.
+
+2) Nếu con trái > con phải thì empty.
+
+3) Thích hợp cho các bài toán tìm kiếm và dữ liệu động
+_ Độ phức tạp: O(logn)
+
+=> Ưu điểm
++ Thêm/xóa: O(logn) => không cần sort vì bản chất có quy luật khi insert và delete
+
+=> Nhược
++ Khi thêm/xóa phải luôn đảm bảo không được phá vỡ cấu trúc của BST cũng như phức tạp.
+
+
+(*) Để update BST thì cần
+(!) update <=> delete -> insert new element
+_ Nếu delete leaf -> tìm father => father.left/right = null
+
+_ Nếu delete internal node để đảm bảo BST
++ có 1 con -> lấy con của node cần xóa thế vào vị trí của node cần xóa
+vd: 12 ->  13     =>    12 -> 14 -> 16
+          /  \
+         14   16
++ có 2 con
+-> Cách 1:
+=> Delete by copying con trái.(Mặc định của đề PE và FE nếu như không nói gì.)
+<> Đi tìm giá trị ngoài cùng bên phải của con bên trái của node cần xóa rồi copy vào vị trí cần xóa,
+sau đó xóa bỏ giá trị ngoài cùng bên phải của con bên trái (giá trị vừa mang đi copy)
+
+=> Delete by copying con phải:
+<> Đi tìm giá trị ngoài bên trái của con bên phải của node cần xóa, copy node vào vị trí cần xóa,
+sau đó xóa bỏ node vừa tìm thấy.
+
+@@ Với giá trị ngoài cùng của con bên trái hoặc phải thì chỉ có duy nhất 1 con
+=> Đưa bài toán từ xóa 2 node thành xóa 1 node hoặc không có con
+
+=> Delete by Merging (left, right)
+<> Left: Lấy toàn bộ con bên phải của node cần xóa, gán vào bên phải của node ngoài cùng bên phải của con bên trái,
+sau đó đưa con bên trái lên làm cha.
+
+<> Right: Lấy toàn bộ con bên trái của node cần xóa, gán vào bên trái của node ngoài cùng bên trái của con bên phải,
+sau đó đưa con bên trái lên làm cha.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

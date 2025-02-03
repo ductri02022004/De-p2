@@ -1,0 +1,16 @@
+///////////////////    Balanced Binary Tree      //////////////////////
+I) Định nghĩa:
+_ 1 cây nhị phân cân bằng mà có độ cao là cân bằng với mỗi node P trong cây có độ cao
+của con trái và con phải không lệch nhau không quá 1 đơn vị.
+_ 1 cây có thể xem xét là 1 cây cân bằng tuyệt đối mà độ cao có thể tìm thấy ở cùng
+một hoặc 2 level
+
+
+(!) Để đưa một BST từ  không cân bằng sang cân bằng thì
+_ Các loại không cân bằng với từng node:
+ R - R -> left rotate
+ L - L -> right rotate
+ L - R
+ R - L
+
+

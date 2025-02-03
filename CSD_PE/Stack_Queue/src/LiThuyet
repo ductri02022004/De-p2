@@ -1,0 +1,10 @@
+# Stack (LIFO): last in first out, dữ liệu được đưa vào (push) và được đưa ra (pop)
+tại cùng một đầu của linked list
+
+head
+
+addFrist() -> push() - O(1)                    AddLast() - O(1)
+
+deleteFrist() -> pop() - O(1)                  DeleteLast - O(n)
+
+để tiện dụng cho việc dùng stack -> addFirst - deleteFirst

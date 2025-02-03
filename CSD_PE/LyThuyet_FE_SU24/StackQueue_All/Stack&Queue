@@ -1,0 +1,34 @@
+#LIFO (last in first out)
+_ Stack
+vd: img1
+
+push(element): Đẩy phần tử vào đỉnh của stack.
+pop(): Xóa phần tử ở đỉnh của stack và trả về phần tử đó.
+top(): Trả về phần tử ở đỉnh của stack mà không xóa nó.
+isEmpty(): Kiểm tra xem stack có trống hay không.
+size(): Trả về số lượng phần tử trong stack.
+clear(): Xóa tất cả các phần tử trong stack.
+
+
+
+
+#FIFO (first in first out)
+_ Dequeue = pop() : lấy ra
+_ Enqueue = push() : thêm vào
+vd: img
+@enqueue(element): Thêm phần tử vào cuối của queue.
+@dequeue(): Xóa phần tử ở đầu của queue và trả về phần tử đó.
+
+
+add() - Chèn phần tử đã chỉ định vào hàng đợi. Nếu tác vụ thành công, add() trả về true, nếu không nó sẽ ném ra một ngoại lệ.
+offer() - Chèn phần tử đã chỉ định vào hàng đợi. Nếu tác vụ thành công, offer() trả về true, nếu không nó sẽ trả về false.
+element() - Trả về phần đầu của hàng đợi. Ném một ngoại lệ nếu hàng đợi trống.
+peek() - Trả về đầu của hàng đợi. Trả về null nếu hàng đợi trống.
+remove() - Trả về và xóa phần đầu của hàng đợi. Ném một ngoại lệ nếu hàng đợi trống.
+poll() - Trả về và loại bỏ phần đầu của hàng đợi. Trả về null nếu hàng đợi trống.
+
+
+#PRIORITY QUEUE:
+VD: img6
+
+@Các hàm: img7

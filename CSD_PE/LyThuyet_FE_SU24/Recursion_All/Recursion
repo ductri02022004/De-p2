@@ -1,0 +1,6 @@
+1) Every recursive function must have at least one base case.
+
+2) trong img_2:
+xét các đáp án nào có kết quả đệ quy lặp lại nhiều lần nhất thì
+-> câu nào có số càng lớn thì đệ quy càng nhiều
+=> nếu là số âm thì sẽ lớn hơn + 1 lần so với số dương

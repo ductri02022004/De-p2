@@ -1,0 +1,4 @@
+cho một linked list
+1) Đi tìm node có size lớn nhất và size nhỏ nht rồi swap chúng
+2) đảo toàn bộ list
+3) sort asc của x1, nếu x1 giống nhau thì sort đến x2, nếu x2 giống nhau thì sort đến x3,etc.
